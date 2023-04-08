@@ -9,6 +9,5 @@ Website Using HTML, CSS, SCSS and JavaScript, with a wonderful user interface.
 - Skills
 - Qualification
 - Portfolio
-- Game (Working on it)
 - Contact
 
