@@ -367,7 +367,7 @@
                         </div>
                     </div>
                     <div class="right-contact">
-                        <form action="" class="contact-form">
+                        <form name = "submit-to-google-sheet" action="" class="contact-form">
                             <div class="input-control i-c-2">
                                 <input type="text" required placeholder="YOUR NAME">
                                 <input type="email" required placeholder="YOUR EMAIL">
@@ -378,11 +378,17 @@
                             <div class="input-control">
                                 <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
                             </div>
-                            <div class="submit-btn">
+                            <div class="submit-btn" class= "btn-text">
+                                <button type = "submit"> Send Message </button>
+                            </div>
+                                <div>
                                 <a href="Resume_Bhoomika.pdf" class="main-btn">
                                     <span class="btn-text">Download</span>
                                     <span class="btn-icon"><i class="fas fa-download"></i></span>
                                 </a>
+                                <!-- <a href= "" >
+                                    <span class="btn-text">Send Message</span>
+                                </a> -->
                             </div>
                         </form>
                     </div>
@@ -415,5 +421,16 @@
     </div>
     <script src="app.js"></script>
     
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXt3e6kedjP0ZHDlLN_AOXDMNRqaF4C8yZmxV-nfLT8986-mYICIE9Fh2JHj3hCnsHTw/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>  
 </body>
 </html>
